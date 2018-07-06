@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
+import FBLoginButton from '../components/FBLoginButton';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        // Navbar
-        // Content
-          //List
-            //Popular
-            //New
-          //Grid
-            //Stream
-          //Chat
-            //MessageList
-            //SendButton
+        <React.Fragment>
+          <FBLoginButton />
+        </React.Fragment>
       </div>
     );
   }
