@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import FBLoginButton from '../components/FBLoginButton';
 
 class App extends Component {
   render() {
