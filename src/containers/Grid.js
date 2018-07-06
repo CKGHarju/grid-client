@@ -19,8 +19,8 @@ class Grid extends Component {
   render () {
     return (
       <div className='Grid' style={{
-        height: '1000px',
-        width: '1600px',
+        height: '100%',
+        width: '100%',
         background: 'black',
         position: 'relative',
       }}>
