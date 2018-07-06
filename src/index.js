@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './containers/AppApp';
+import App from './containers/App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 let store = createStore(
   reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(api())
+  applyMiddleware(api('http://localhost:3000'))
 )
 
 ReactDOM.render(

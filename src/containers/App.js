@@ -5,16 +5,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        // Navbar
-        // Content
-          //List
-            //Popular
-            //New
-          //Grid
-            //Stream
-          //Chat
-            //MessageList
-            //SendButton
+        <p>MaIN PAGE</p>
       </div>
     );
   }
