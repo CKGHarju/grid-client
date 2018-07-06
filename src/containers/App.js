@@ -6,6 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <p>MaIN PAGE</p>
+        <FBLoginButton />
       </div>
     );
   }
