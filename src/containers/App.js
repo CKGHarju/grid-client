@@ -5,9 +5,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <React.Fragment>
-          <FBLoginButton />
-        </React.Fragment>
+        <p>MaIN PAGE</p>
       </div>
     );
   }
