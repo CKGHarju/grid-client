@@ -3,14 +3,17 @@ import styled from 'styled-components';
 import Trending from '../components/Trending';
 import Favourites from '../components/Favourites';
 import Share from '../components/Share';
+import FBLoginButton from './FBLoginButton';
 
 export default class Navbar extends Component {
   render() {
     return (
       <Wrapper>
-        <Trending />
+        <p style={{color: 'white', paddingLeft: '20px'}}>GRID.TV</p>
+        {/* <Trending />
         <Favourites />
-        <Share />
+        <Share /> */}
+        <FBLoginButton />
       </Wrapper>
     );
   }
@@ -26,6 +29,6 @@ const Wrapper = styled.div`
   background-color: #000;
   box-shadow: 0 2px 2px #efefef;
   z-index: 999;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   justify-content: space-between;
 `;
