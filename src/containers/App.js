@@ -8,12 +8,11 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div style={{display: 'flex'}}>
-          <div>
-            LISTS
+          <div style={{fontSize: '20px', width: '300px'}}>
+            Popular / New / Chat
           </div>
           <Grid />
           <div>
-            CHAT
           </div>
         </div>
       </div>

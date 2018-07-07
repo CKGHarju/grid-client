@@ -7,29 +7,30 @@ class Grid extends Component {
   constructor (props) {
     super(props);
     this.state = {
-
+      streams: [],
+      
     }
   }
 
-  renderStreams = () => {
-
+  componentDidMount() {
+    this.setState({streams: [<Stream addStream={this.addStream}/>]})
   }
 
+  addStream = () => {
+    let streams = this.state.streams;
+    streams.push(<Stream addStream={this.addStream}/>)
+    this.setState({streams: streams})
+  }
 
   render () {
     return (
       <div className='Grid' style={{
-        height: '100%',
+        height: '95vh',
         width: '100%',
         background: 'black',
         position: 'relative',
       }}>
-        <Stream />
-        <Stream />
-        <Stream />
-        <Stream />
-        <Stream />
-        <Stream />
+        {this.state.streams}
       </div>
     )
   }

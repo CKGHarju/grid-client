@@ -27,7 +27,7 @@ class Stream extends Component {
       <iframe
         src={"http://player.twitch.tv/?channel=" + this.state.stream}
         height="300"
-        width="400"
+        width="500"
         frameborder="<frameborder>"
         scrolling="no"
         allowfullscreen="true">
@@ -40,6 +40,7 @@ class Stream extends Component {
     if (this.state.stream === '') {
       return this.renderAdd();
     } else {
+      this.props.addStream();
       return this.renderStream();
     }
   }
@@ -47,21 +48,21 @@ class Stream extends Component {
   renderAdd = () => {
     if (this.state.showForm) {
       if (this.state.type === 'twitch') return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Channel:
+        <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+          <label style={{color: 'white'}}>
+            <p>Channel</p>
             <input type="text" value={this.state.value} onChange={this.handleChange} autoFocus/>
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Save" style={{width: '50px'}} />
         </form>
       )      
     }
 
     if (!this.state.showTypes && !this.state.showForm) return (
       <div className='logolist' style={{
-        paddingTop: '100px',
+        paddingTop: '15%',
         }}>
-        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '90px', cursor: 'pointer'}} class="fas fa-plus"></i>;
+        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '10vh', cursor: 'pointer'}} class="fas fa-plus"></i>;
       </div>
     )
     if (this.state.showTypes) return (
@@ -78,11 +79,12 @@ class Stream extends Component {
   render () {
     return (
       <div style={{
-        height: '300px',
-        width: '400px',
-        background: 'rgb(192,192,192)',
+        height: '25vh',
+        width: '25vw',
+        background: 'rgb(30,30,30)',
         position: 'relative',
         margin: '30px',
+        borderRadius: '20px',
       }}>
         {this.renderLogic()}
       </div>
