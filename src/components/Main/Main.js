@@ -5,8 +5,11 @@ import Panel from '../Panel/Panel';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './Main.css'
-
+// this.props.updateStreams(res.data.videos)
 class Main extends Component {
+  state = {
+    code: 'noCode'
+  }
   componentDidMount = async () => {
     if (localStorage.getItem('token')) {
       await axios.get('http://192.168.1.241:3631/getUser', {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
@@ -14,22 +17,47 @@ class Main extends Component {
     }
     if (this.props.location.pathname !== '/') { 
       let code = this.props.location.pathname.replace('/', '');
+      await this.setState({code: code})
       await axios.get(`http://192.168.1.241:3631/getGrid/${code}`, {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
         .then(res => this.props.updateStreams(res.data.videos))
     }
+    await console.log('streamdata!!: ', this.props.streamsdata);
   }
   render() {
-    return (
-      <div>
-      <Navbar />
-        <div className='main' style={{display: 'flex'}}>
-          <Panel/>
-          <Grid/>
+    if (this.state.code == 'noCode') {
+      return (
+        <div>
+        <Navbar />
+          <div className='main' style={{display: 'flex'}}>
+            <Panel/>
+            <Grid/>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else if (this.state.code !== 'noCode' && this.props.streamsdata[0]) {
+      return (
+        <div>
+        <Navbar />
+          <div className='main' style={{display: 'flex'}}>
+            <Panel/>
+            <Grid/>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h2>Loading...</h2>
+        </div>
+      )
+    }
   }
 }
+
+const mapStateToProps = (state) => ({
+  streamsdata: state.streamsdata,
+  userdata: state.userdata,
+})
 
 const mapDispatchToProps = (dispatch) => ({
   updateUserData: (user) => dispatch({
@@ -37,9 +65,9 @@ const mapDispatchToProps = (dispatch) => ({
     userdata: user
   }),
   updateStreams: (streams) => dispatch({
-    type: 'VISITOR_STREAMS',
-    visitorstreams: streams
+    type: 'SAVE_STREAMS',
+    streamsdata: streams
   })
 });
 
-export default connect(null, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
