@@ -56,15 +56,15 @@ class Stream extends Component {
       
     return (
       <div className='singleStreamContainer'>
-        <iframe
+        <iframe className='iframe'
           src={url}
           height="300"
-          width="500"
-          frameborder="0"
+          width="450"
+          frameBorder="0"
           scrolling="no"
-          allowfullscreen="true">
+          allowFullScreen="true">
         </iframe>
-        <i onClick={() => this.setState({stream: '', type: '', showTypes: false, showForm: false, value: ''})} class="removeStream fas fa-times"></i>
+        <i onClick={() => this.setState({stream: '', type: '', showTypes: false, showForm: false, value: ''})} className="removeStream fas fa-times"></i>
       </div>
       
     )

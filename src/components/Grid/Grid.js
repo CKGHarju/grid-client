@@ -18,7 +18,7 @@ class Grid extends Component {
     this.props.streams.forEach((element, i) => {
       streams.push(<Stream key={i} type={element.type} channel={element.linkURL}/>)        
     });
-    streams.push(<Stream key={'lastStream'} addStream={this.addStream}/>)
+    streams.push(<Stream key='first' addStream={this.addStream}/>)
     this.setState({streams: streams})
   }
 
