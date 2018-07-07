@@ -67,7 +67,7 @@ class Stream extends Component {
       <div className='logolist' style={{
         paddingTop: '90px',
         }}>
-        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '100px', cursor: 'pointer'}} class="fas fa-plus"></i>;
+        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '100px', cursor: 'pointer'}} className="fas fa-plus"></i>;
       </div>
     )
     if (this.state.showTypes) return (

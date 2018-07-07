@@ -13,12 +13,6 @@ class Grid extends Component {
       
     }
   }
-  componentDidMount = () => {
-    console.log('this is from the grip component: ', this.props.location.pathname);
-    if(this.props.location.pathname !== '/') {
-
-    }
-  }
 
   componentDidMount() {
     this.setState({streams: [<Stream addStream={this.addStream}/>]})
@@ -34,26 +28,15 @@ class Grid extends Component {
 
   render () {
     return (
-      <div className='Grid' style={{
-        height: '100%',
-        width: '100%',
-        background: 'black',
-        position: 'relative',
-      }}>
-      <Navbar />
-        <Stream />
-        <Stream />
-        <Stream />
-        <Stream />
-        <Stream />
-        <Stream />
+      <div className='Grid'>
+      {this.state.streams}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-
+  streams: state.streamsdata
 });
 
 const mapDispatchToProps = (dispatch) => ({
