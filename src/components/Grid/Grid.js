@@ -14,7 +14,7 @@ class Grid extends Component {
 
   componentDidMount() {
     //let mockdata = ["Alderiate", "imaqtpie", "ElmiilloR", "Yelo", "SolaryFortnite"];
-    let mockdata = ["SolaryFortnite"];
+    let mockdata = [];
   //this.props.streams.forEach(element => {
     mockdata.forEach(element => {
       let streams = this.state.streams;
