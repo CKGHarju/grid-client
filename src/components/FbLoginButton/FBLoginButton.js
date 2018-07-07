@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
-import '../styles/FBLoginButton.css';
+import './FBLoginButton.css';
 import { connect } from 'react-redux';
 import axios from 'axios';
 

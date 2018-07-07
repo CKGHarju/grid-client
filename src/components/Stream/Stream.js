@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Stream.css';
 
 class Stream extends Component {
 
@@ -11,7 +12,12 @@ class Stream extends Component {
       showTypes: false,
       showForm: false,
       value: '',
-      streams: [],
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.channel) {
+      this.setState({stream: this.props.channel})
     }
   }
 
@@ -23,8 +29,8 @@ class Stream extends Component {
     await event.preventDefault();
     await this.setState({stream: this.state.value});
 
-    await this.setState({streams: [...this.state.streams, `http://player.twitch.tv/?channel=${this.state.value}`] });
-    await this.props.updateStreams(this.state.streams);
+    // await this.setState({streams: [...this.state.streams, `http://player.twitch.tv/?channel=${this.state.value}`] });
+    await this.props.updateStreams(this.state.stream);
   }
 
   renderStream = () => {
@@ -45,7 +51,7 @@ class Stream extends Component {
     if (this.state.stream === '') {
       return this.renderAdd()
     } else {
-      this.props.addStream();
+      if (this.props.addStream) this.props.addStream();
       return this.renderStream();
     }
   }
@@ -53,28 +59,26 @@ class Stream extends Component {
   renderAdd = () => {
     if (this.state.showForm) {
       if (this.state.type === 'twitch') return (
-        <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
-          <label style={{color: 'white'}}>
+        <form className='renderAddForm' onSubmit={this.handleSubmit}>
+          <label className='renderAddLabel'>
             <p>Channel</p>
             <input type="text" value={this.state.value} onChange={this.handleChange} autoFocus/>
           </label>
-          <input type="submit" value="Save" style={{width: '50px'}} />
+          <input className='renderAddInput' type="submit" value="Save"/>
         </form>
       )      
     }
 
     if (!this.state.showTypes && !this.state.showForm) return (
-      <div className='logolist' style={{
-        paddingTop: '90px',
-        }}>
-        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '100px', cursor: 'pointer'}} className="fas fa-plus"></i>;
+      <div className='logolist'>
+        <i onClick={() => this.setState({showTypes: true})} className="renderAddLogo fas fa-plus"></i>;
       </div>
     )
     if (this.state.showTypes) return (
       <div className='logolist' style={{display: 'flex', justifyContent: 'space-around', fontSize: '70px', paddingTop: '100px'}}> 
-        <i className="fab fa-twitch" onClick={() => this.setState({type: 'twitch', showForm: 'true'})} style={{color: 'rgb(100, 65, 164)', cursor: 'pointer'}}></i>
-        <i className="fab fa-youtube" onClick={() => this.setState({type: 'youtube', showForm: 'true'})} style={{color: 'rgb(255, 0, 0)', cursor: 'pointer'}}></i>
-        <i className="fab fa-facebook" onClick={() => this.setState({type: 'facebook', showForm: 'true'})} style={{color: 'rgb(59, 89, 152)', cursor: 'pointer'}}></i>
+        <i className="fab fa-twitch" onClick={() => this.setState({type: 'twitch', showForm: 'true'})}></i>
+        <i className="fab fa-youtube" onClick={() => this.setState({type: 'youtube', showForm: 'true'})}></i>
+        <i className="fab fa-facebook" onClick={() => this.setState({type: 'facebook', showForm: 'true'})}></i>
       </div>
     )
     
@@ -83,14 +87,7 @@ class Stream extends Component {
 
   render () {
     return (
-      <div style={{
-        height: '300px',
-        width: '450px',
-        background: 'rgb(30,30,30)',
-        position: 'relative',
-        margin: '30px',
-        borderRadius: '20px',
-      }}>
+      <div className='streamContainer'>
         {this.renderLogic()}
       </div>
     )
@@ -102,9 +99,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateStreams: (streams) => dispatch({
+  updateStreams: (stream) => dispatch({
     type: 'SAVE_STREAMS',
-    streamsdata: streams,
+    streamsdata: stream,
   })
 });
 

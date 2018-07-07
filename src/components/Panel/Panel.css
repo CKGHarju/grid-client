@@ -1,0 +1,47 @@
+.buttonHover {
+  cursor: pointer;
+}
+
+.buttonHover:hover {
+  color: rgb(235, 219, 83);
+  transform: scale(1.05);
+}
+
+.renderNavigation {
+  font-size: 18px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 15px;
+  padding-left: 15px;
+  background: rgb(30,30,30);
+}
+
+.openArrow {
+  color: rgb(30,30,30);
+  font-size: 50px;
+  cursor: pointer;
+  background: black;
+  padding-left: 5px;
+}
+
+.closeArrow {
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  background: black;
+  padding-left: 150px;
+}
+
+.renderPanelOpen {
+  color: white;
+  background: black; 
+  height: 95vh;
+  border-right: 2px solid rgb(30,30,30);
+}
+
+.renderPanelClosed {
+  color: white;
+  background: black; 
+  height: 95vh;
+}

@@ -1,0 +1,46 @@
+.renderAddForm {
+  display: flex; 
+  flex-direction: column;
+}
+
+.renderAddLabel {
+  color: white;
+}
+
+.renderAddInput {
+  width: 50px;
+}
+
+.logolist {
+  paddingTop: 90px;
+}
+
+.renderAddLogo {
+  color: white;
+  fontSize: 100px; 
+  cursor: pointer;
+}
+
+.fa-twitch {
+  color: rgb(100, 65, 164); 
+  cursor: pointer;
+}
+
+.fa-youtube {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+}
+
+.fa-facebook {
+  color: rgb(59, 89, 152);
+  cursor: pointer;
+}
+
+.streamContainer {
+    height: 300px;
+    width: 450px;
+    background: rgb(30,30,30);
+    position: relative;
+    margin: 30px;
+    border-radius: 20px;
+}
