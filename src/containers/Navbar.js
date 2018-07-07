@@ -24,7 +24,7 @@ export default class Navbar extends Component {
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 60px;
+  height: 5vh;
   top: 0;
   left: 0;
   position: sticky;
