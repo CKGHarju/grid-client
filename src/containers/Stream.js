@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Stream extends Component {
 
@@ -10,6 +11,7 @@ class Stream extends Component {
       showTypes: false,
       showForm: false,
       value: '',
+      streams: [],
     }
   }
 
@@ -17,9 +19,12 @@ class Stream extends Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.setState({stream: this.state.value})
+  handleSubmit = async (event) => {
+    await event.preventDefault();
+    await this.setState({stream: this.state.value});
+
+    await this.setState({streams: [...this.state.streams, `http://player.twitch.tv/?channel=${this.state.value}`] });
+    await this.props.updateStreams(this.state.streams);
   }
 
   renderStream = () => {
@@ -38,7 +43,7 @@ class Stream extends Component {
 
   renderLogic = () => {
     if (this.state.stream === '') {
-      return this.renderAdd();
+      return this.renderAdd()
     } else {
       this.props.addStream();
       return this.renderStream();
@@ -92,4 +97,15 @@ class Stream extends Component {
   }
 }
 
-export default Stream;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateStreams: (streams) => dispatch({
+    type: 'SAVE_STREAMS',
+    streamsdata: streams,
+  })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stream);
