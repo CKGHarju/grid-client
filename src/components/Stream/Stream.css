@@ -1,46 +1,68 @@
 .renderAddForm {
-  display: flex; 
-  flex-direction: column;
+  /* display: flex; 
+  flex-direction: column; */
 }
 
 .renderAddLabel {
   color: white;
 }
 
-.renderAddInput {
+.renderAddSubmit {
   width: 50px;
+  height: 36px;
 }
 
-.logolist {
-  paddingTop: 90px;
+.renderAddInput {
+  width: 300px;
+  height: 30px;
 }
 
 .renderAddLogo {
+  padding-top: 90px;
   color: white;
-  fontSize: 100px; 
+  font-size: 100px; 
+  cursor: pointer;
+}
+
+.streamLogo {
   cursor: pointer;
 }
 
 .fa-twitch {
   color: rgb(100, 65, 164); 
-  cursor: pointer;
 }
 
 .fa-youtube {
   color: rgb(255, 0, 0);
-  cursor: pointer;
 }
 
 .fa-facebook {
   color: rgb(59, 89, 152);
-  cursor: pointer;
 }
 
 .streamContainer {
     height: 300px;
-    width: 450px;
+    width: 500px;
     background: rgb(30,30,30);
     position: relative;
-    margin: 30px;
+    margin: 20px;
     border-radius: 20px;
+}
+
+.singleStreamContainer {
+  display: flex;
+  background: black;
+  height: 300px;
+  width: 500px;
+}
+
+.removeStream {
+  font-size: 30px;
+  height: 0px;
+  color: white;
+}
+
+.removeStream:hover {
+  color: red;
+  transform: scale(1.2);
 }

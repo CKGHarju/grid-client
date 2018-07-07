@@ -14,11 +14,11 @@ class Grid extends Component {
 
   componentDidMount() {
     //let mockdata = ["Alderiate", "imaqtpie", "ElmiilloR", "Yelo", "SolaryFortnite"];
-    let mockdata = ["SolaryFortnite"];
+    let mockdata = [];
   //this.props.streams.forEach(element => {
-    mockdata.forEach(element => {
+    mockdata.forEach((element, i) => { 
       let streams = this.state.streams;
-      streams.push(<Stream channel={element}/>)
+      streams.push(<Stream key={i} channel={element}/>)
       this.setState({streams: streams})
     });
     let streams = this.state.streams;
