@@ -17,7 +17,7 @@ class Stream extends Component {
 
   componentDidMount() {
     if (this.props.channel) {
-      this.setState({stream: this.props.channel})
+      this.setState({stream: this.props.channel, type: this.props.type})
     }
   }
 
@@ -26,7 +26,7 @@ class Stream extends Component {
   }
 
   handleSubmit = async (event) => {
-    event.preventDefault();
+    await event.preventDefault();
     if (this.state.type === 'youtube') {
       await this.setState({stream: this.state.value.split('?v=')[1]});
     } else if (this.state.type === 'facebook') {
@@ -38,7 +38,7 @@ class Stream extends Component {
         await this.setState({stream: this.state.value});
       }
     }
-    await this.props.updateStreams(this.state.stream);
+    await this.props.updateStreams({type: this.state.type, linkURL: this.state.stream});
   }
 
   renderStream = () => {

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import './FBLoginButton.css';
-import { connect } from 'react-redux';
 import axios from 'axios';
 
 class FBLoginButton extends Component {
   responseFacebook = async (response) => {
-    let user = {name: response.name, id: response.id, email: response.email, token: response.accessToken}
-    await console.log(user);
-    await this.props.updateUserData(user);
+    //let user = {name: response.name, id: response.id, email: response.email, token: response.accessToken}
+    //await console.log(user);
+    //await this.props.updateUserData(user);
     await axios.get('http://192.168.1.241:3631/auth/facebook', { headers: { "Authorization" : `Bearer ${response.accessToken}`}})
-      //.then(res => res.json())
-      .then(res => console.log(res.data))
+      .then(res => localStorage.setItem('token', res.data.jwt))
       .catch(err => console.log(err))
   }
 
@@ -29,15 +27,4 @@ class FBLoginButton extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  updateUserData: (user) => dispatch({
-    type: 'USER_DATA',
-    userdata: user
-  })
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FBLoginButton);
+export default FBLoginButton;
