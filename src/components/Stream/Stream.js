@@ -17,7 +17,7 @@ class Stream extends Component {
 
   componentDidMount() {
     if (this.props.channel) {
-      this.setState({stream: this.props.channel})
+      this.setState({stream: this.props.channel, type: this.props.type})
     }
   }
 
@@ -30,7 +30,7 @@ class Stream extends Component {
     await this.setState({stream: this.state.value});
 
     // await this.setState({streams: [...this.state.streams, `http://player.twitch.tv/?channel=${this.state.value}`] });
-    await this.props.updateStreams(this.state.stream);
+    await this.props.updateStreams({type: this.state.type, linkURL: this.state.stream});
   }
 
   renderStream = () => {
