@@ -11,9 +11,9 @@ class Chat extends Component {
       inputMessage: '',
     }
     // rogers server:
-    // this.socket = io('http://192.168.1.241:3631')
+    this.socket = io('http://192.168.1.241:3631')
     // lars server:
-    this.socket = io('http://192.168.1.194:3001')
+    // this.socket = io('http://192.168.1.194:3001')
   }
   renderMessages = () => {
     return this.state.messages.map((msg, index) => {
