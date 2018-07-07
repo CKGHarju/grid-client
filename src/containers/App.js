@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import './App.css';
+import Grid from './Grid';
+import Navbar from './Navbar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        // Navbar
-        // Content
-          //List
-            //Popular
-            //New
-          //Grid
-            //Stream
-          //Chat
-            //MessageList
-            //SendButton
+        <Navbar />
+        <div style={{display: 'flex'}}>
+          <div style={{fontSize: '20px', width: '300px'}}>
+            Popular / New / Chat
+          </div>
+          <Grid />
+          <div>
+          </div>
+        </div>
       </div>
     );
   }
