@@ -20,7 +20,7 @@ class Grid extends Component {
     });
     
     let streams = this.state.streams;
-    streams.push(<Stream addStream={this.addStream}/>)
+    streams.push(<Stream key='first' addStream={this.addStream}/>)
     this.setState({streams: streams})
 
 
