@@ -31,7 +31,6 @@ class Grid extends Component {
         background: 'black',
         position: 'relative',
       }}>
-      <Navbar />
         <Stream />
         <Stream />
         <Stream />

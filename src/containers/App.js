@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Grid from './Grid';
+import Main from './Main';
 import { Switch, Route } from 'react-router-dom';
 
 
@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' pathname="/grid" component={Grid}/>
-          <Route path='/:id' pathname="/grid" component={Grid}/>
+          <Route exact path='/' pathname="/main" component={Main}/>
+          <Route path='/:id' pathname="/main" component={Main}/>
         </Switch>
       </div>
     );
