@@ -26,13 +26,6 @@ class SaveButton extends Component {
     //   .catch(err => console.log(err.message))
   }
 
-  shareStreams = () => {
-    let data = {streams: this.props.streamsdata, user: this.props.userdata};
-    // axios.post('http://...', JSON.parse(data))
-    //   .then(res => console.log(res.data))
-    //   .catch(err => console.log(err.message))
-  }
-
   handleChange = (e) => {
     this.setState({value: e.target.value});
   }
@@ -55,7 +48,6 @@ class SaveButton extends Component {
     return (
       <div>
         <button onClick={this.getStreams}>Save Your Grid</button>
-        <button onClick={this.shareStreams}>Share Your Grid</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

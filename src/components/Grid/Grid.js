@@ -13,17 +13,13 @@ class Grid extends Component {
   }
 
   componentDidMount() {
+    console.log('Grids: !!!', this.props.streams)
+    let streams = [].concat(this.state.streams);
     this.props.streams.forEach((element, i) => {
-      let streams = this.state.streams;
       streams.push(<Stream key={i} type={element.type} channel={element.linkURL}/>)        
-      this.setState({streams: streams})
     });
-    
-    let streams = this.state.streams;
     streams.push(<Stream key='first' addStream={this.addStream}/>)
     this.setState({streams: streams})
-
-
   }
 
   addStream = () => {
@@ -34,11 +30,11 @@ class Grid extends Component {
   }
 
   render () {
-    return (
-      <div className='Grid'>
-        {this.state.streams}
-      </div>
-    )
+      return (
+        <div className='Grid'>
+          {this.state.streams}
+        </div>
+      )
   }
 }
 
