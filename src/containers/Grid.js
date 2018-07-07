@@ -17,6 +17,7 @@ class Grid extends Component {
   }
 
   addStream = () => {
+    if (this.state.streams.length === 9) return;
     let streams = this.state.streams;
     streams.push(<Stream addStream={this.addStream}/>)
     this.setState({streams: streams})
@@ -24,12 +25,7 @@ class Grid extends Component {
 
   render () {
     return (
-      <div className='Grid' style={{
-        height: '95vh',
-        width: '100%',
-        background: 'black',
-        position: 'relative',
-      }}>
+      <div className='Grid'>
         {this.state.streams}
       </div>
     )

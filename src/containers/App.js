@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import Grid from './Grid';
 import Navbar from './Navbar';
+import Panel from './Panel';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Navbar />
         <div style={{display: 'flex'}}>
-          <div style={{fontSize: '20px', width: '300px'}}>
-            Popular / New / Chat
-          </div>
-          <Grid />
-          <div>
-          </div>
+          <Panel/>
+          <Grid/>
         </div>
+
+        
       </div>
     );
   }

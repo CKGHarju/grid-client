@@ -27,7 +27,7 @@ class Stream extends Component {
       <iframe
         src={"http://player.twitch.tv/?channel=" + this.state.stream}
         height="300"
-        width="500"
+        width="450"
         frameborder="<frameborder>"
         scrolling="no"
         allowfullscreen="true">
@@ -60,9 +60,9 @@ class Stream extends Component {
 
     if (!this.state.showTypes && !this.state.showForm) return (
       <div className='logolist' style={{
-        paddingTop: '15%',
+        paddingTop: '90px',
         }}>
-        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '10vh', cursor: 'pointer'}} class="fas fa-plus"></i>;
+        <i onClick={() => this.setState({showTypes: true})} style={{color: 'white', fontSize: '100px', cursor: 'pointer'}} class="fas fa-plus"></i>;
       </div>
     )
     if (this.state.showTypes) return (
@@ -79,8 +79,8 @@ class Stream extends Component {
   render () {
     return (
       <div style={{
-        height: '25vh',
-        width: '25vw',
+        height: '300px',
+        width: '450px',
         background: 'rgb(30,30,30)',
         position: 'relative',
         margin: '30px',
