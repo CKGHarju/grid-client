@@ -50,7 +50,6 @@ class Chat extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   handleSubmit = (e) => {
-    console.log(e.keyCode || e.charCode)
     if (e.keyCode === 13 || e.charCode === 13) {
       e.preventDefault();
       const room = window.location.pathname.split('/')[1];
