@@ -4,6 +4,7 @@ import Trending from '../components/Trending';
 import Favourites from '../components/Favourites';
 import Share from '../components/Share';
 import FBLoginButton from './FBLoginButton';
+import SaveButton from './SaveButton';
 
 export default class Navbar extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class Navbar extends Component {
         {/* <Trending />
         <Favourites />
         <Share /> */}
+        <SaveButton />
         <FBLoginButton />
       </Wrapper>
     );

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Stream from './Stream';
+import Navbar from './Navbar';
+import { connect } from 'react-redux';
 import '../styles/Grid.css';
 
 class Grid extends Component {
@@ -10,7 +12,12 @@ class Grid extends Component {
 
     }
   }
+  componentDidMount = () => {
+    console.log('this is from the grip component: ', this.props.location.pathname);
+    if(this.props.location.pathname !== '/') {
 
+    }
+  }
   renderStreams = () => {
 
   }
@@ -24,6 +31,7 @@ class Grid extends Component {
         background: 'black',
         position: 'relative',
       }}>
+      <Navbar />
         <Stream />
         <Stream />
         <Stream />
@@ -35,4 +43,15 @@ class Grid extends Component {
   }
 }
 
-export default Grid;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateStreams: (streams) => dispatch({
+    type: 'SAVE_STREAMS',
+    streamsdata: streams,
+  })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);
