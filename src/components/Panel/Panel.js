@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chat from '../Chat/Chat'
 import './Panel.css'
 
 class Panel extends Component {
@@ -35,7 +36,7 @@ class Panel extends Component {
     if (this.state.navState === 'popular') return <p>Popular list</p>
     if (this.state.navState === 'new') return <p>new list</p>
     if (this.state.navState === 'saved') return <p>saved list</p>
-    if (this.state.navState === 'chat') return <p>chat list</p>
+    if (this.state.navState === 'chat') return <Chat />
   }
 
   renderHideArrow = () => {
