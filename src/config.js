@@ -1,1 +1,1 @@
-export default 'http://apisftw.knl.cat:3631';
+export default 'http://192.168.1.241:3631';
