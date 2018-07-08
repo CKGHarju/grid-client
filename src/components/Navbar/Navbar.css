@@ -9,9 +9,10 @@
   box-shadow: 0 2px 2px #efefef;
   z-index: 999;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   color: white;
-  paddingLeft: 20px;
+  padding-left: 20px;
 }
