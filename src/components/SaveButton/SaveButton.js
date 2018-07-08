@@ -48,7 +48,9 @@ class SaveButton extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.getStreams}>Save Your Grid</button>
+        <div className="savebuttoncontainer">
+          <button className="savebutton" onClick={this.getStreams}>Save Your Grid</button>
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
