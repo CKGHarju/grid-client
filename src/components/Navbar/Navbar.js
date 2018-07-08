@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FBLoginButton from '../FbLoginButton/FBLoginButton';
 import SaveButton from '../SaveButton/SaveButton';
+import EditButton from '../EditButton/EditButton';
 import './Navbar.css'
 import logo from './logo.png'
 
@@ -26,6 +27,7 @@ class Navbar extends Component {
     return (
       <div className='Wrapper'>
         <img src={logo} className="navbar-logo" />
+        <EditButton />
         <SaveButton />
         {this.showFacebookButton()}
       </div>
