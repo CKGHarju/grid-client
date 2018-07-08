@@ -8,5 +8,5 @@ export default combineReducers({
   editStateReducer,
   streamsdata,
   userdata,
-  chatdata
+  chatdata,
 })

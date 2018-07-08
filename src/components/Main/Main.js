@@ -7,7 +7,6 @@ import axios from 'axios';
 import './Main.css'
 import SERVER_URL from '../../config';
 
-// this.props.updateStreams(res.data.videos)
 class Main extends Component {
   state = {
     code: 'noCode'
@@ -21,7 +20,7 @@ class Main extends Component {
     if (this.props.location.pathname !== '/') { 
       let code = this.props.location.pathname.replace('/', '');
       await this.setState({code: code})
-      await axios.get(SERVER_URL + `/getGrid/${code}`, {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
+      await axios.get(SERVER_URL + `/getGrid/${code}`)
         .then(res => this.props.updateStreams(res.data.videos))
     }
     await console.log('streamdata!!: ', this.props.streamsdata);
@@ -63,10 +62,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  
   updateUserData: (user) => dispatch({
     type: 'USER_DATA',
     userdata: user
   }),
+
   updateStreams: (streams) => dispatch({
     type: 'SAVE_STREAMS',
     streamsdata: streams

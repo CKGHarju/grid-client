@@ -22,20 +22,18 @@ class SaveButton extends Component {
     let data = {streams: this.props.streamsdata, user: this.props.userdata};
     console.log(data);
     this.setState({modalIsOpen: true});
-    // axios.post('http://...', JSON.parse(data))
-    //   .then(res => console.log(res.data))
-    //   .catch(err => console.log(err.message))
   }
-
   handleChange = (e) => {
     this.setState({value: e.target.value});
   }
 
   handleSubmit = async (event) => {
+    let newgrids = [].concat(this.props.userdata.grids);
     await event.preventDefault();
     axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     await axios.post(SERVER_URL+ '/saveGrid', {name: this.state.value, videos: this.props.streamsdata})
-            .then(res => console.log('response for Post:', res));
+            .then(res => newgrids.push(res.data.URL));
+    await this.props.updateUserData({name: this.props.userdata.name, id: this.props.userdata.id, grids: newgrids})
     await this.setState({modalIsOpen: false});
   }
 
@@ -75,9 +73,12 @@ const mapStateToProps = (state) => ({
   userdata: state.userdata,
 })
 
-// const mapDispatchToProps = (dispatch) => ({
-
-// })
+const mapDispatchToProps = (dispatch) => ({
+  updateUserData: (user) => dispatch({
+    type: 'USER_DATA',
+    userdata: user
+  }),
+})
 
 const customStyles = {
   content : {
@@ -89,5 +90,5 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }
 };
-export default connect(mapStateToProps, null)(SaveButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SaveButton);
 

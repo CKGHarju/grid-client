@@ -25,15 +25,13 @@ class Saved extends Component {
             <p className='gridName' >{grid.name}</p>
             <a className='gridURL' href={`/${grid.URL}`}>{grid.URL}</a>
           </div>
-          <i onClick={() => this.deleteGrid(grid.URL)} className="fas fa-trash"></i>
+          <i onClick={() => {this.deleteGrid(grid.URL)}} className="fas fa-trash"></i>
         </div>
       )
     })
   }
 
-  reFetchUserData = () => {
-    
-  }
+  
 
   deleteGrid = (url) => {
     fetch(SERVER_URL + '/deleteGrid', {
@@ -46,7 +44,14 @@ class Saved extends Component {
     })
     .then(response => response.json())
     .then(json => {
-      console.log(json);
+      let grids = [];
+      for (let i = 0; i <= this.props.grids.length; i++) {
+        if (i === this.props.grids.length) {
+          this.props.updateUserData(grids);
+          break;
+        }
+        if (this.props.grids[i].URL !== url) grids.push(this.props.grids[i]);
+      }
     })
   }
 
@@ -69,9 +74,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateUserData: (user) => dispatch({
-    type: 'USER_DATA',
-    userdata: user
+  updateUserData: (grids) => dispatch({
+    type: 'USER_DATA_REFRESH',
+    grids: grids
   }),
 });
 
