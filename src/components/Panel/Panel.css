@@ -43,7 +43,7 @@
   color: white;
   background: rgb(30,30,30);
   width: 25rem;
-  height: calc(100vh - 82px);
+  height: calc(100vh - 100px);
   padding-top: 2rem;
   border-right: 3.5rem solid rgb(0, 0, 0);
 }
