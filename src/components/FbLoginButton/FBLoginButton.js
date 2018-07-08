@@ -20,6 +20,7 @@ class FBLoginButton extends Component {
         appId="1137338516406399"
         autoLoad={true}
         fields="name,email,picture"
+        textButton="Login"
         callback={this.responseFacebook}
         cssClass="facebookLoginButton"
         version="3.0"
