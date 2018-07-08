@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FBLoginButton from '../FbLoginButton/FBLoginButton';
 import SaveButton from '../SaveButton/SaveButton';
+import EditButton from '../EditButton/EditButton';
 import './Navbar.css'
 
 class Navbar extends Component {
@@ -25,6 +26,7 @@ class Navbar extends Component {
     return (
       <div className='Wrapper'>
         <p className='logo'>GRID.TV</p>
+        <EditButton />
         <SaveButton />
         {this.showFacebookButton()}
       </div>

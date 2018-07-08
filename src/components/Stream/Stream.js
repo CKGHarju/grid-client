@@ -26,6 +26,7 @@ class Stream extends Component {
   }
 
   handleSubmit = async (event) => {
+    if (this.props.addStream) this.props.addStream();
     await event.preventDefault();
     if (this.state.type === 'youtube') {
       await this.setState({stream: this.state.value.split('?v=')[1]});
@@ -53,7 +54,7 @@ class Stream extends Component {
       case 'facebook':
         url = "https://www.facebook.com/video/embed?video_id=" + this.state.stream;
     }
-      
+
     return (
       <div className='singleStreamContainer'>
         <iframe className='iframe'
@@ -66,16 +67,16 @@ class Stream extends Component {
         </iframe>
         <i onClick={() => this.setState({stream: '', type: '', showTypes: false, showForm: false, value: ''})} className="removeStream fas fa-times"></i>
       </div>
-      
+
     )
   }
-  
+
 
   renderLogic = () => {
     if (this.state.stream === '') {
       return this.renderAdd()
     } else {
-      if (this.props.addStream) this.props.addStream();
+      // if (this.props.addStream) this.props.addStream();
       return this.renderStream();
     }
   }
@@ -114,26 +115,31 @@ class Stream extends Component {
       </div>
     )
     if (this.state.showTypes) return (
-      <div className='logolist' style={{display: 'flex', justifyContent: 'space-around', fontSize: '70px', paddingTop: '100px'}}> 
+      <div className='logolist' style={{display: 'flex', justifyContent: 'space-around', fontSize: '70px', paddingTop: '100px'}}>
         <i className="streamLogo fab fa-twitch" onClick={() => this.setState({type: 'twitch', showForm: 'true'})}></i>
         <i className="streamLogo fab fa-youtube" onClick={() => this.setState({type: 'youtube', showForm: 'true'})}></i>
         <i className="streamLogo fab fa-facebook" onClick={() => this.setState({type: 'facebook', showForm: 'true'})}></i>
       </div>
     )
-    
+
   }
 
   render () {
-    return (
+    let ret;
+    if ( this.state.stream === '' && !this.props.editStateReducer.editing) {
+      ret = null;
+    } else {
+      ret =
       <div className='streamContainer'>
         {this.renderLogic()}
-      </div>
-    )
+      </div>;
+    }
+    return ret;
   }
 }
 
 const mapStateToProps = (state) => ({
-
+  editStateReducer: state.editStateReducer
 });
 
 const mapDispatchToProps = (dispatch) => ({
