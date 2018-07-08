@@ -21,7 +21,7 @@ class Main extends Component {
     if (this.props.location.pathname !== '/') { 
       let code = this.props.location.pathname.replace('/', '');
       await this.setState({code: code})
-      await axios.get(SERVER_URL + `/getGrid/${code}`, {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
+      await axios.get(SERVER_URL + `/getGrid/${code}`)
         .then(res => this.props.updateStreams(res.data.videos))
     }
     await console.log('streamdata!!: ', this.props.streamsdata);
