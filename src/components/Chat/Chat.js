@@ -24,7 +24,7 @@ class Chat extends Component {
     // this.socket = io('http://192.168.1.194:3001')
   }
   renderMessages = () => {
-    if(this.props.chatdata[0]) {
+    if(this.props.chatdata.length > this.state.messages.length) {
       return this.props.chatdata.map((msg, index) => {
         return (<div key={index}>
           <span className="chat-name">{msg.name}</span>
