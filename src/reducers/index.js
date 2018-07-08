@@ -6,5 +6,5 @@ import chatdata from './chatdata';
 export default combineReducers({
   streamsdata,
   userdata,
-  chatdata
+  chatdata,
 })
