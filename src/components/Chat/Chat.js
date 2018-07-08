@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client'
+import { connect } from 'react-redux';
 import './Chat.css';
 import SERVER_URL from '../../config';
 
@@ -8,12 +9,14 @@ class Chat extends Component {
   constructor() {
     super();
     this.state = {
+      username: '',
       messages: [{
-        name: 'Christopher',
-        timestamp: '5 min ago',
-        message: 'this is a message'
+        name: '',
+        timestamp: '',
+        message: 'Start the Chat'
       }],
       inputMessage: '',
+      chat: [],
     }
     // rogers server:
     this.socket = io(SERVER_URL)
@@ -21,6 +24,14 @@ class Chat extends Component {
     // this.socket = io('http://192.168.1.194:3001')
   }
   renderMessages = () => {
+    if(this.props.chatdata[0]) {
+      return this.props.chatdata.map((msg, index) => {
+        return (<div key={index}>
+          <span className="chat-name">{msg.name}</span>
+          <div className="chat-message">{msg.message}</div>
+        </div>);
+      });      
+    }
     return this.state.messages.map((msg, index) => {
       return (<div key={index}>
         <span className="chat-name">{msg.name}</span>
@@ -29,11 +40,11 @@ class Chat extends Component {
       </div>);
     });
   }
+
   componentDidMount() {
+    this.setState({username: this.props.userdata.name})
     const room = window.location.pathname.split('/')[1];
-
     this.socket.emit('join', { room: room });
-
     this.socket.on('handle message', message => {
       this.setState((prevState) => {
         let messages = prevState.messages
@@ -47,16 +58,18 @@ class Chat extends Component {
   componentWillUnmount() {
     this.socket.close()
   }
+
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
+  
   handleSubmit = (e) => {
     if (e.keyCode === 13 || e.charCode === 13) {
       e.preventDefault();
       const room = window.location.pathname.split('/')[1];
-  
+      this.props.updateChatData([{name: this.state.username, message: this.state.inputMessage}]);
       this.socket.emit('new message', {
-        name: 'Chrstopher',
+        name: this.state.username,
         room: room,
         message: this.state.inputMessage,
         timestamp: Date.now(),
@@ -64,6 +77,7 @@ class Chat extends Component {
       this.setState({
         inputMessage: ''
       })
+      
     }
   }
   render() {
@@ -78,4 +92,16 @@ class Chat extends Component {
   }
 }
 
-export default Chat;
+const mapStateToProps = (state) => ({
+  userdata: state.userdata,
+  chatdata: state.chatdata,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  updateChatData: (chat) => dispatch({
+    type: 'SAVE_CHAT',
+    chatdata: chat
+  })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);
