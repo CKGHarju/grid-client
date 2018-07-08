@@ -7,7 +7,6 @@ import axios from 'axios';
 import './Main.css'
 import SERVER_URL from '../../config';
 
-// this.props.updateStreams(res.data.videos)
 class Main extends Component {
   state = {
     code: 'noCode'
@@ -63,10 +62,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  
   updateUserData: (user) => dispatch({
     type: 'USER_DATA',
     userdata: user
   }),
+
   updateStreams: (streams) => dispatch({
     type: 'SAVE_STREAMS',
     streamsdata: streams
