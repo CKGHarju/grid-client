@@ -50,6 +50,11 @@
   border-radius: 20px;
 }
 
+.streamContainer:hover {
+  background: rgb(32, 32, 32);
+
+}
+
 .singleStreamContainer {
   display: flex;
   background: black;
