@@ -31,7 +31,9 @@ class Saved extends Component {
     })
   }
 
-  //create refetch
+  reFetchUserData = () => {
+    
+  }
 
   deleteGrid = (url) => {
     fetch(SERVER_URL + '/deleteGrid', {

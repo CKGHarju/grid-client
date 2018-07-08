@@ -110,7 +110,7 @@ class Stream extends Component {
 
     if (!this.state.showTypes && !this.state.showForm) return (
       <div className='logolist'>
-        <i onClick={() => this.setState({showTypes: true})} className="renderAddLogo fas fa-plus"></i>;
+        <i onClick={() => this.setState({showTypes: true})} className="renderAddLogo fas fa-plus"></i>
       </div>
     )
     if (this.state.showTypes) return (
