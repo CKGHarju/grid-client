@@ -41,12 +41,12 @@
 }
 
 .streamContainer {
-    height: 300px;
-    width: 450px;
-    background: rgb(30,30,30);
-    position: relative;
-    margin: 20px;
-    border-radius: 20px;
+  height: 300px;
+  width: 450px;
+  background: rgb(30,30,30);
+  position: relative;
+  margin: 20px;
+  border-radius: 20px;
 }
 
 .singleStreamContainer {

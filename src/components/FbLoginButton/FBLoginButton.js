@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import './FBLoginButton.css';
 import axios from 'axios';
+import SERVER_URL from '../../config';
 
 class FBLoginButton extends Component {
   responseFacebook = async (response) => {
     //let user = {name: response.name, id: response.id, email: response.email, token: response.accessToken}
     //await console.log(user);
     //await this.props.updateUserData(user);
-    await axios.get('http://192.168.1.241:3631/auth/facebook', { headers: { "Authorization" : `Bearer ${response.accessToken}`}})
+    await axios.get(SERVER_URL + '/auth/facebook', { headers: { "Authorization" : `Bearer ${response.accessToken}`}})
       .then(res => localStorage.setItem('token', res.data.jwt))
       .catch(err => console.log(err))
   }

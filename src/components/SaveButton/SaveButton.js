@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Modal from 'react-modal';
 import './SaveButton.css';
+import SERVER_URL from '../../config';
 
 
 class SaveButton extends Component {
@@ -33,7 +34,7 @@ class SaveButton extends Component {
   handleSubmit = async (event) => {
     await event.preventDefault();
     axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-    await axios.post('http://192.168.1.241:3631/saveGrid', {name: this.state.value, videos: this.props.streamsdata})
+    await axios.post(SERVER_URL+ '/saveGrid', {name: this.state.value, videos: this.props.streamsdata})
             .then(res => console.log('response for Post:', res));
     await this.setState({modalIsOpen: false});
   }

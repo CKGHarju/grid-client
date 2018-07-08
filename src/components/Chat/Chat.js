@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client'
 import './Chat.css';
+import SERVER_URL from '../../config';
 
 
 class Chat extends Component {
@@ -8,14 +9,14 @@ class Chat extends Component {
     super();
     this.state = {
       messages: [{
-        name: 'Bob',
+        name: 'Christopher',
         timestamp: '5 min ago',
         message: 'this is a message'
       }],
       inputMessage: '',
     }
     // rogers server:
-    this.socket = io('http://192.168.1.241:3631')
+    this.socket = io(SERVER_URL)
     // lars server:
     // this.socket = io('http://192.168.1.194:3001')
   }
@@ -55,7 +56,7 @@ class Chat extends Component {
       const room = window.location.pathname.split('/')[1];
   
       this.socket.emit('new message', {
-        name: 'Bob',
+        name: 'Chrstopher',
         room: room,
         message: this.state.inputMessage,
         timestamp: Date.now(),
