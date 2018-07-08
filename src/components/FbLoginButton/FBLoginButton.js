@@ -17,7 +17,7 @@ class FBLoginButton extends Component {
   render() {
     return (
       <FacebookLogin
-        appId="1137338516406399"
+        appId="885943278262231"
         autoLoad={true}
         fields="name,email,picture"
         textButton="Login"
