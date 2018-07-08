@@ -22,9 +22,6 @@ class SaveButton extends Component {
     let data = {streams: this.props.streamsdata, user: this.props.userdata};
     console.log(data);
     this.setState({modalIsOpen: true});
-    // axios.post('http://...', JSON.parse(data))
-    //   .then(res => console.log(res.data))
-    //   .catch(err => console.log(err.message))
   }
   handleChange = (e) => {
     this.setState({value: e.target.value});
