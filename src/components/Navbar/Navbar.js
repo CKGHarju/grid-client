@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FBLoginButton from '../FbLoginButton/FBLoginButton';
 import SaveButton from '../SaveButton/SaveButton';
 import './Navbar.css'
+import logo from './logo.png'
 
 class Navbar extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className='Wrapper'>
-        <p className='logo'>GRID.TV</p>
+        <img src={logo} className="navbar-logo" />
         <SaveButton />
         {this.showFacebookButton()}
       </div>
