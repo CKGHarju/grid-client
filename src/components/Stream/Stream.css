@@ -18,9 +18,10 @@
 }
 
 .renderAddLogo {
-  padding-top: 90px;
-  color: white;
-  font-size: 100px; 
+  padding-top: 110px;
+  /* color: rgba(34, 100, 40, 0.555); */
+  color: rgb(96, 156, 40);
+  font-size: 70px; 
   cursor: pointer;
 }
 
@@ -43,7 +44,7 @@
 .streamContainer {
   height: 300px;
   width: 450px;
-  background: rgb(30,30,30);
+  background: rgb(24, 24, 24);
   position: relative;
   margin: 20px;
   border-radius: 20px;
