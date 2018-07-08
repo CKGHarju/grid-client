@@ -1,0 +1,37 @@
+.gridURL {
+  font-size: 12px;
+  cursor: pointer;
+  color: rgb(245, 216, 216);
+}
+
+.savedGrids:hover {
+  background: rgb(36, 34, 34);
+}
+
+.gridName {
+  font-size: 14px;
+}
+
+.savedGrids {
+  display: flex;
+}
+
+.savedGridsInfo {
+}
+
+.fa-trash {
+  align-self: center;
+  padding-left: 40px;
+  
+}
+
+.fa-trash:hover {
+  transform: scale(1.1);
+  color: red;
+}
+
+.savedGridsContainer {
+  overflow-y: auto;
+  min-height: 40vh;
+  max-height: 70vh;
+}

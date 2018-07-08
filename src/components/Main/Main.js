@@ -5,20 +5,23 @@ import Panel from '../Panel/Panel';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './Main.css'
+import SERVER_URL from '../../config';
+
 // this.props.updateStreams(res.data.videos)
 class Main extends Component {
   state = {
     code: 'noCode'
   }
   componentDidMount = async () => {
+    console.log('Server', SERVER_URL);
     if (localStorage.getItem('token')) {
-      await axios.get('http://192.168.1.241:3631/getUser', {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
+      await axios.get(SERVER_URL +'/getUser', {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
         .then(res => this.props.updateUserData({name: res.data.user.displayName, id: res.data.user.fbUserId, grids: res.data.user.grids}));
     }
     if (this.props.location.pathname !== '/') { 
       let code = this.props.location.pathname.replace('/', '');
       await this.setState({code: code})
-      await axios.get(`http://192.168.1.241:3631/getGrid/${code}`, {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
+      await axios.get(SERVER_URL + `/getGrid/${code}`, {headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
         .then(res => this.props.updateStreams(res.data.videos))
     }
     await console.log('streamdata!!: ', this.props.streamsdata);
