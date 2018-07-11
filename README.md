@@ -3,7 +3,7 @@ Grids is a submission to the Facebook Developer Challenge 2018. The project won 
 # Grids
 Grids is a online platform where users can add and watch collections of streams in one View. A collection of multiple streams are called grids, which can be shared with a link to other users or published online. We implemented a chat so multiple viewers of the same grid can easily communicate and chat with eachothers.
 
-[Try it online! (https://grids.nina)](https://grids.nina)
+[Try it online! (https://grids.ninja)](https://grids.nina)
 
 ![Alt text](./public/grid.jpg?raw=true "Grid"))
 
@@ -20,4 +20,3 @@ Roger Canela - [Github](https://github.com/rogerknl) - [LinkedIn](https://www.li
 Edgar Cheverier - [Github](https://github.com/edgarcheverier) - [LinkedIn](https://es.linkedin.com/in/edgar-hugo-cheverier-aguilar-886b3a86)
 
 Lars Berger - [Github](https://github.com/lars-berger) - [LinkedIn](https://www.linkedin.com/in/lars-berger/)
-
