@@ -1,0 +1,74 @@
+.renderAddForm {
+  /* display: flex; 
+  flex-direction: column; */
+}
+
+.renderAddLabel {
+  color: white;
+}
+
+.renderAddSubmit {
+  width: 50px;
+  height: 36px;
+}
+
+.renderAddInput {
+  width: 300px;
+  height: 30px;
+}
+
+.renderAddLogo {
+  padding-top: 110px;
+  /* color: rgba(34, 100, 40, 0.555); */
+  color: rgb(96, 156, 40);
+  font-size: 70px; 
+  cursor: pointer;
+}
+
+.streamLogo {
+  cursor: pointer;
+}
+
+.fa-twitch {
+  color: rgb(100, 65, 164); 
+}
+
+.fa-youtube {
+  color: rgb(255, 0, 0);
+}
+
+.fa-facebook {
+  color: rgb(59, 89, 152);
+}
+
+.streamContainer {
+  height: 300px;
+  width: 450px;
+  background: rgb(24, 24, 24);
+  position: relative;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.streamContainer:hover {
+  background: rgb(32, 32, 32);
+
+}
+
+.singleStreamContainer {
+  display: flex;
+  background: black;
+  height: 300px;
+  width: 450px;
+}
+
+.removeStream {
+  font-size: 30px;
+  height: 0px;
+  color: white;
+}
+
+.removeStream:hover {
+  color: red;
+  transform: scale(1.2);
+}

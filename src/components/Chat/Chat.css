@@ -1,0 +1,42 @@
+.Chat {
+  height: 800px;
+  padding: 0.7rem;
+  width: 100%;
+  margin-left: -10px;
+}
+
+.messages-container {
+  height: 100%;
+  min-height: 40vh;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.chat-name {
+  color: rgb(241, 241, 241);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.chat-timestamp {
+  color: rgb(209, 209, 209);
+  font-size: 0.7rem;
+}
+
+.chat-message {
+  font-size: 0.9rem;
+}
+
+.chat-textarea {
+  border: none;
+  resize: none;
+  width: calc(100% - 1.4rem);
+  background-color: rgb(34, 34, 34);
+  border: 0.1rem solid rgb(77, 77, 77);
+  color: white;
+}
+
+.chat-textarea:focus {
+  outline: 0.1px solid rgb(122, 122, 122);
+}

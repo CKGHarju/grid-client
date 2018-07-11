@@ -1,0 +1,22 @@
+.Wrapper {
+  display: flex;
+  align-items: center;
+  /* width: 100%; */
+  height: 4rem;
+  /* position: sticky; */
+  padding: 0 1rem;
+  background-color: black;
+  /* box-shadow: 0 2px 2px #efefef; */
+  border-bottom: 2px solid rgb(185, 185, 185);
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 2.2rem;
+}
+
+.NavButtonContainer {
+  display: flex;
+}

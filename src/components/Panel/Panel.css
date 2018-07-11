@@ -1,0 +1,80 @@
+/* ******************************************************************** */
+/*                          CLOSED PANEL                                */
+/* ******************************************************************** */
+
+.panel-closed {
+  margin-top: 2rem;
+  color: white;
+}
+
+.panel-navigation {
+  width: calc(100% + 2rem);
+  padding-left: 1rem;
+  /* background: rgb(224, 115, 219); */
+  /* background: rgb(179, 96, 174); */
+  background: #6099b3;
+  border-bottom-right-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+  height: 3.3rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.panel-open-wrapper {
+  height: 3.3rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1.3rem;
+  background: rgb(96, 153, 179);
+  border-top-right-radius: 0.1rem;
+  border-bottom-right-radius: 0.1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: white;
+}
+
+
+/* ******************************************************************** */
+/*                           OPEN PANEL                                 */
+/* ******************************************************************** */
+
+.panel-open {
+  color: white;
+  background: rgb(30,30,30);
+  width: 25rem;
+  height: calc(100vh - 100px);
+  padding-top: 2rem;
+  border-right: 3.5rem solid rgb(0, 0, 0);
+}
+
+.panel-navigation-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 4rem);
+  padding-right: 1rem;
+}
+
+.panel-navigation-links p.panel-link {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-family: 'Verdana';
+  cursor: pointer;
+}
+
+
+.panel-navigation-links p:hover {
+  color: rgb(30,30,30);
+}
+
+.panel-navigation-button {
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.panel-content {
+  padding: 0 1rem;
+}

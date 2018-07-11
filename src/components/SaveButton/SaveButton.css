@@ -1,0 +1,42 @@
+.titleModal {
+  color: white;
+}
+
+input.inputModal {
+  width: 100% !important;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  background-color: rgb(23, 23, 23) !important;
+}
+
+input.submitModal {
+  width: 103%;
+  background-color: grey;
+  color: white;
+}
+
+.savebuttoncontainer {
+  margin-right: 25px;
+}
+
+.savebutton{
+  background-color: #555555;
+  color: white;
+  padding: 5px 24px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.savebutton:hover {
+  background-color: white;
+  color: black;
+}
