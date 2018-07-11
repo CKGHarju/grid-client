@@ -49,7 +49,7 @@ class Stream extends Component {
         url = "https://www.youtube.com/embed/" + this.state.stream;
         break;
       case 'twitch':
-        url = "http://player.twitch.tv/?channel=" + this.state.stream;
+        url = "https://player.twitch.tv/?channel=" + this.state.stream;
         break;
       case 'facebook':
         url = "https://www.facebook.com/video/embed?video_id=" + this.state.stream;
@@ -76,7 +76,6 @@ class Stream extends Component {
     if (this.state.stream === '') {
       return this.renderAdd()
     } else {
-      // if (this.props.addStream) this.props.addStream();
       return this.renderStream();
     }
   }

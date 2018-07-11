@@ -13,7 +13,6 @@ class Grid extends Component {
   }
 
   componentDidMount() {
-    console.log('Grids: !!!', this.props.streams)
     let streams = [].concat(this.state.streams);
     this.props.streams.forEach((element, i) => {
       streams.push(<Stream key={i} type={element.type} channel={element.linkURL}/>)        
