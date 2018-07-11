@@ -16,3 +16,7 @@
 .navbar-logo {
   height: 2.2rem;
 }
+
+.NavButtonContainer {
+  display: flex;
+}
